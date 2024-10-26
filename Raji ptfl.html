@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raji portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      scroll-behavior: smooth;
+    }
+
+    .nav {
+      width: 100%;
+      position: absolute;
+      margin-bottom: 3em;
+      user-select: none;
+      height: 3em;
+    
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .education {
+      padding: 15px 0 0 0;
+    }
+
+    .nav .name,
+    .edu-name {
+      font-size: 2em;
+      font-weight: 500;
+      font-family: italic;
+    }
+
+    .nav .navbar ul {
+      list-style-type: none;
+      height: 3em;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav .navbar ul li {
+      align-content: center;
+      padding: 0 10px;
+      font-size: 1.5em;
+      transition: all 0.5s ease;
+    }
+
+    .nav .navbar ul li:hover {
+      border: 1px solid rgb(3, 3, 3);
+      color: black;
+      border-radius: 5px;
+      background-color: pink;
+    }
+
+    .mobile-nav i {
+      font-size: 2em;
+      padding: 3px;
+      border: 1px solid transparent;
+    }
+
+    .mobile-nav i:active {
+      border-color: pink;
+    }
+
+    #Education,
+    #projects,
+    #certifications,
+    #skills {
+      scroll-margin-top: 30px;
+    }
+
+    .mobile-navbar .mobilenav {
+      user-select: none;
+      position: fixed;
+      top: 0;
+      right: 0;
+      display: none;
+      height: 100vh;
+      width: 100vw;
+      background-color: cornsilk;
+
+      ul {
+        position: inherit;
+
+        justify-content: center;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        li {
+          margin: 5px 0;
+          font-size: 2em;
+          text-align: center;
+          width: 100vw;
+          display: flex;
+          justify-content: center;
+          align-items: baseline;
+          color: black;
+        }
+
+        li a {
+          width: 100%;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    .fa-close {
+      position: fixed;
+      margin: 10px;
+      right: 0;
+    }
+
+    /* Mobile */
+    @media screen and (max-width: 480px) {
+      .navbar {
+        display: none;
+      }
+
+      .mobilenav.active {
+        display: block;
+        /* overflow: hidden; */
+      }
+
+      .intro {
+        padding-top: 3em;
+        height: calc(100vh - 3em);
+        flex-direction: column;
+        background-color: cornsilk ;
+        /* justify-content:center; */
+        align-items: center;
+      }
+
+      .intro .intro-image {
+        margin: 10px 0 10px 0;
+      }
+
+      .image {
+        border: 2px solid pink;
+        width: 300px;
+        background-color: cornsilk;
+      }
+
+      .intro-text p {
+        margin: 10px;
+        font-size: 20px;
+        color: black;
+      }
+
+      .intro-text p span {
+        font-size: 30px;
+        color: pink;
+      }
+
+      #career-text {
+        font-size: 30px;
+      }
+
+      .intro-btns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .intro-btns button {
+        border: none;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: cornsilk;
+        color: white;
+        box-shadow: 5px 5px 5px rgb(198, 187, 187),
+          -5px -5px 5px rgb(198, 187, 187);
+        font-size: 30px;
+      }
+
+      .education {
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .education-section {
+        width: 100%;
+
+        border: 2px solid rgb(247, 210, 210);
+        box-shadow: 5px 5px 5px rgb(233, 225, 225), 5px 5px 5px rgb(211, 90, 90);
+      }
+
+      .education-section span {
+        display: block;
+        font-size: 20px;
+      }
+
+      .education-section .role {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .qualification {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .projects {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .project {
+        margin: 10px;
+
+        .project-img {
+          height: 300px;
+          width: 300px;
+          display: block;
+          border: 2px solid rgb(255, 255, 255);
+        }
+
+        .project-name {
+          font-size: 20px;
+          text-align: center;
+          display: block;
+        }
+      }
+
+      #projects {
+        padding: 10px 00 0 0;
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .projects-title,
+      .skills-title,
+      .certification-title,
+      .education-title {
+        padding-top: 20px;
+        display: block;
+        background-color: pink;
+        font-size: 2em;
+        font-weight: 500;
+        font-family: Montserrat;
+      }
+
+      #skills {
+        width: 100%;
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .skills {
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 10px;
+        flex: 0 1 calc(50% - 10px);
+      }
+
+      .skill i {
+        font-size: 80px;
+        text-align: center;
+        display: block;
+      }
+
+      .skill .skill-name {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      #certifications {
+        padding: 10px 0 0 0;
+        background-color: cornsilk;
+        color: black;
+        width: 100%;
+      }
+
+      .certifications {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .certificate {
+        margin: 10px 0;
+        border: 1px solid white;
+        padding: 10px;
+      }
+
+      .certificate a {
+        display: flex;
+        justify-content: center;
+      }
+
+      .certificate a img {
+        display: block;
+        height: 150px;
+      }
+    }
+
+    /* Tablets */
+    @media screen and (max-width: 768px) and (min-width: 481px) {
+      .navbar {
+        display: none;
+      }
+
+      .mobilenav.active {
+        display: block;
+      }
+
+      .intro {
+        padding: 3em;
+        flex-direction: column;
+        height: calc(100vh + 3em);
+        align-content: space-around;
+        align-items: center;
+        background-color: cornsilk;
+      }
+
+      .intro .intro-image {
+        margin: 10px 0 10px 0;
+      }
+
+      .image {
+        border: 2px solid pink;
+        width: 400px;
+      }
+
+      .intro-text p {
+        margin: 10px;
+        font-size: 30px;
+        color: black;
+      }
+
+      .intro-text p span {
+        font-size: 40px;
+        color: pink;
+      }
+
+      #career-text {
+        font-size: 30px;
+      }
+
+      .intro-btns {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .intro-btns button {
+        border: 2px solid pink;
+        border: none;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: cornsilk;
+        color: black;
+        box-shadow: 5px 5px 5px rgb(198, 187, 187),
+          -5px -5px 5px rgb(198, 187, 187);
+        font-size: 30px;
+      }
+
+      .education {
+        background-color: rgb(221, 218, 204);
+        color: black;
+      }
+
+      .education-section {
+        width: 100%;
+
+        border: 2px solid rgb(235, 226, 226);
+        box-shadow: 5px 5px 5px rgb(211, 207, 207), 5px 5px 5px rgb(211, 90, 90);
+      }
+
+      .education-section span {
+        display: block;
+        font-size: 25px;
+      }
+
+      .education-section .role {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .qualification {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .projects {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .project {
+        margin: 10px;
+
+        .project-img {
+          height: 300px;
+          width: 300px;
+          display: block;
+          border: 2px solid rgb(255, 255, 255);
+        }
+
+        .project-name {
+          font-size: 25px;
+          text-align: center;
+          display: block;
+        }
+      }
+
+      #projects {
+        padding: 10px 00 0 0;
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .projects-title,
+      .skills-title,
+      .certification-title,
+      .education-title {
+        padding-top: 20px;
+        padding-left: 10px;
+        display: block;
+        background-color: pink;
+        font-size: 2em;
+        font-weight: 500;
+        font-family: Montserrat;
+        color: black;
+      }
+
+      #skills {
+        width: 100%;
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 10px;
+        flex: 0 1 calc(50% - 10px);
+      }
+
+      .skill i {
+        font-size: 80px;
+        text-align: center;
+        display: block;
+      }
+
+      .skill .skill-name {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      #certifications {
+        padding: 10px 0 0 0;
+        background-color: cornsilk;
+        color: black;
+        width: 100%;
+      }
+
+      .certifications {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+
+      .certificate {
+        margin: 10px 0;
+        border: 1px solid white;
+        padding: 10px;
+      }
+
+      .certificate a {
+        display: flex;
+        justify-content: center;
+      }
+
+      .certificate-name {
+        text-align: center;
+        display: block;
+      }
+
+      .certificate a img {
+        display: block;
+        height: 150px;
+      }
+    }
+
+    /* Large */
+    @media screen and (min-width: 769px)
+    /*large*/
+      {
+      .mobile-nav {
+        display: none;
+      }
+
+      .image {
+        width: 400px;
+        border: 3px solid pink;
+      }
+
+      .intro {
+        height: calc(100vh + 3em);
+        background-color: cornsilk;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: center;
+        color: black;
+      }
+
+      .intro-text {
+        font-size: 40px;
+      }
+
+      .intro-text p span {
+        font-size: 50px;
+        color: black;
+      }
+
+      .intro-btns {
+        margin: 30px 0 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .intro-btns button {
+        padding: 10px;
+        font-size: 30px;
+        border-radius: 10px;
+        background-color: cornsilk;
+        color: black;
+        cursor: pointer;
+        box-shadow: 5px 5px 5px rgb(198, 187, 187),
+          -5px -5px 5px rgb(198, 187, 187);
+      }
+
+      .education {
+        padding: 20px 0;
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .education-section {
+        width: 30vw;
+        margin: 10px;
+        border: 2px solid rgb(245, 243, 243);
+        box-shadow: 5px 5px 5px rgb(245, 243, 243), 5px 5px 5px rgb(211, 90, 90);
+      }
+
+      .education-section span {
+        display: block;
+        font-size: 25px;
+      }
+
+      .education-section .role {
+        font-size: 30px;
+        text-align: center;
+      }
+
+      .qualification {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
+      #skills {
+        width: 100%;
+        background-color: cornsilk;
+        color: black;
+      }
+
+      .skills {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: row;
+
+        gap: 10px;
+      }
+
+      .skill {
+        padding: 10px;
+        flex: 0 1 calc(50% - 10px);
+      }
+
+      .skill i {
+        font-size: 80px;
+        text-align: center;
+        display: block;
+      }
+
+      .skill .skill-name {
+        display: block;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      #certifications {
+        padding: 10px 0 0 0;
+        background-color: cornsilk;
+        color: black;
+        width: 100%;
+      }
+
+      .certifications {
+        padding: 20px 0;
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .certificate {
+        margin: 10px 0;
+        border: 1px solid white;
+        padding: 10px;
+      }
+
+      .certificate a {
+        display: flex;
+        justify-content: center;
+      }
+
+      .certificate a img {
+        display: block;
+        height: 150px;
+      }
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:active,
+    a:link,
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
+
+    .intro {
+      display: flex;
+    }
+
+    .image {
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+
+    .contact {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nav">
+    <div class="name"><img style="height: 100px;" src="https://devforum-uploads.s3.dualstack.us-east-2.amazonaws.com/uploads/original/4X/d/8/b/d8bd07eba2fb8156a43041fb1496bb2721da9e49.png" alt=""></div>
+    <div class="mobile-nav">
+      <i class="fa fa-bars" id="navBtn"></i>
+    </div>
+    <div class="navbar">
+      <ul>
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#connect">Contact Me</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="mobile-navbar">
+    <div class="mobilenav">
+      <ul>
+        <li><i class="fa fa-close"></i></li>
+        <br /><br /><br /><br />
+        <li><a href="#Home">Home</a></li>
+        <li><a href="#Education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#connect">Contact Me</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="intro" id="Home">
+    <div class="intro-image">
+      <img src="https://ik.imagekit.io/fu4uxhoyq/1728561602328.jpg?updatedAt=1728561774912" class="image"
+        alt="Raji's profile picture" />
+    </div>
+    <div class="intro-text">
+      <p>
+        Myself <span style="color: palevioletred;">R</span>aja <span  style="color: palevioletred;">R</span>ajeswari <span  style="color: palevioletred;">J</span>avvadi
+      </p>
+      <p id="career-text">I am a</p>
+      <div class="intro-btns">
+        <button><a href="#skills">My Skills</a></button>
+        <button><a href="https://ik.imagekit.io/fu4uxhoyq/Raji%20Resume.png?updatedAt=1728571266257" download="https://ik.imagekit.io/fu4uxhoyq/Raji%20Resume.png?updatedAt=1728571266257">View Resume</a></button>
+        
+      </div>
+    </div>
+  </div>
+  <div class="education" id="Education">
+    <div class="education-title" style="font-size: 30px; background-color: pink; text-align: center;">Education</div>
+
+    <div class="qualification">
+      <div class="graduation education-section">
+        <span class="role"><i class="fa-solid fa-user-graduate"></i> Graduation
+        </span>
+        <span class="branch"><b>Branch</b> : CSE-Data Science</span>
+        <span class="year"><b>Year</b> : 2022 - 2026</span>
+
+        <span class="name"><b>College</b> : Sasi Institute of Technology and Engineering</span>
+        <span class="location"><b>Location </b> :
+          <i class="fa-solid fa-location-dot"></i> Tadepalligudem</span>
+        <span class="percentage"><b>Passing Percenatge</b> : 90%</span>
+      </div>
+      <div class="Intermediate education-section">
+        <span class="role"><i class="fa-solid fa-graduation-cap"></i> Intermediate
+        </span>
+        <span class="branch"><b>Branch</b> : MPC</span>
+        <span class="year"><b>Year</b> : 2020 - 2022</span>
+
+        <span class="name"><b>College</b> : S.V.S.S Arts & Science Jr College</span>
+        <span class="location"><b>Location </b> :
+          <i class="fa-solid fa-location-dot"></i> Attili</span>
+        <span class="percentage"><b>Passing Percenatge</b> : 78%</span>
+      </div>
+      <div class="schooling education-section">
+        <span class="role"><i class="fa-solid fa-graduation-cap"></i> Schooling(S.S.E)
+        </span>
+        <span class="year"><b>Year</b> : 2019 - 2020</span>
+
+        <span class="name"><b>College</b> : Z.P. Girls High School</span>
+        <span class="location"><b>Location </b> :
+          <i class="fa-solid fa-location-dot"></i> Attili</span>
+        <span class="percentage"><b>Passing Percenatge</b> : 98%</span>
+      </div>
+    </div>
+  </div>
+  <div id="skills">
+    <div class="skills-title" style="font-size: 30px; background-color: pink; text-align: center;">Skills</div>
+
+    <div class="skills">
+      <div class="skill">
+        <i class="fab fa-html5"></i>
+
+        <span class="skill-name">HTML5</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-css3-alt"></i>
+
+        <span class="skill-name">CSS</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-js"></i>
+
+        <span class="skill-name">JS</span>
+      </div>
+      <div class="skill">
+        <i class="fas fa-code"></i>
+
+        <span class="skill-name">C</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-java"></i>
+
+        <span class="skill-name">Java</span>
+      </div>
+      <div class="skill">
+        <i class="fab fa-python"></i>
+
+        <span class="skill-name">Python</span>
+      </div>
+    </div>
+  </div>
+  <div id="certifications">
+    <div class="certification-title" style="font-size: 30px; background-color: pink; text-align: center;">Certifications</div>
+    <div class="certifications">
+      <div class="certificate">
+        <a href="https://ik.imagekit.io/fu4uxhoyq/Google%20Android%20Virtual%20Internship.jpg?updatedAt=1728211163861"
+          target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWK2YPQyD9ZcZ20JdEmGUxgFYO6QE0bc537A&s"
+            alt="Certification 3" />
+        </a>
+        <span class="certificate-name">Android Developer Certificate from Google</span>
+      </div>
+      <div class="certificate">
+        <a href="https://ik.imagekit.io/fu4uxhoyq/AIML%20Virtual%20Internship.jpg?updatedAt=1728211150762"
+          target="_blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjr7Bt1SrWPQWMicSLkQz19emxNQUy4MsQLQ&s"
+            alt="Certification 2" />
+        </a>
+        <span class="certificate-name">AI-ML engineer certificate from Google</span>
+      </div>
+      <div class="certificate">
+        <a href="https://ik.imagekit.io/fu4uxhoyq/IMG_20241005_210020.jpg?updatedAt=1728142708548" target="_blank">
+          <img
+            src="data:image/png;base64,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"
+            alt="Certification 1" />
+        </a>
+        <span class="certificate-name">Mongodb developer certificate from Infosys Springboard</span>
+      </div>
+    </div>
+  </div>
+  <div class="contact" id="connect">
+    <p style="text-align: center;">
+      <b>Connet with me at</b>
+      <a href="https://www.linkedin.com/in/rajeswari-javvadi-130520280/" style="color: rgb(59, 59, 156)"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/" style="color: rgba(89, 18, 107, 0.545)"><i class="fab fa-instagram"></i></a>
+      <a href="github.com/RajiRjavvadi" style="color: black"><i class="fab fa-github"></i></a>
+      <a href="tel:9912577123" style="color: rgb(1, 69, 254)"><i class="fas fa-phone"></i></a>
+      <a href="rajeswari.javvadi@sasi.ac.in" style="color: rgb(13, 189, 22)"><i class="fa-solid fa-envelope"></i></a>
+    </p>
+  </div>
+</body>
+<script>
+  let navMenuBtn = document.querySelector(".fa-bars");
+  let navCloseBtn = document.querySelector(".fa-close");
+  let mobileNav = document.querySelector(".mobilenav");
+  navMenuBtn.addEventListener("click", toggleMenu);
+  function toggleMenu() {
+    mobileNav.classList.toggle("active");
+  }
+  navCloseBtn.addEventListener("click", toggleMenu);
+  let careers = [
+    "Web Developer.",
+    "Web Designer",
+    "Python Developer.",
+    "Java Developer.",
+  ];
+  let careerIndex = 0;
+  let index = 0;
+  let careerText = document.getElementById("career-text");
+  function displayCareer() {
+    careerText.innerText = `I am a ${careers[careerIndex].slice(0, index)}`;
+
+    if (index <= careers[careerIndex].length) {
+      index++;
+    } else {
+      careerIndex++;
+      index = 0;
+    }
+    if (careerIndex == careers.length) {
+      careerIndex = 0;
+      index = 0;
+    }
+  }
+  setInterval(displayCareer, 500);
+  // Close the mobile menu when a link is clicked
+  const mobileNavLinks = document.querySelectorAll(".mobilenav ul li a");
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      document.querySelector(".mobilenav").classList.remove("active");
+    });
+  });
+</script>
+
+</html>
